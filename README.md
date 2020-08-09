@@ -1,5 +1,6 @@
 "# DjangoWeb" 
-BUILDING THE DJANGO PROJECT
+BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
+
        step.1 github add new repository
 
        step.2 add new project file
