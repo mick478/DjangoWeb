@@ -18,8 +18,8 @@ BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
        step.4 start django project
 
               dos:
-              django-admin startproject "src(projectname)"
-              cd "src(porjectname)"\ 
+              django-admin startproject "src(filename to put your code)"
+              cd "src(filename to put code)"
               python manage.py runserver
 
        THE WEB IS WORKING NOW.(CTRL+Fn+B TO END)
@@ -39,5 +39,36 @@ ADD APP IN THE PROJECT
        step.1 open the IED whatever you wnat and open project
        
        step.2 open terminal screem and type ## also you can runserver here by "python manage.py runserver"
+              
               python manage.py startapp "name of app"
+              
+       step.3 add your app in the setting
+              
+              find the INSTALLED_APPS in setting.py and add your name of app
+
+FIRST VIEW IN DJANGO
+
+       step.1 create Template ## for frontend
+              
+              add new directory below src
+              add new HTML file in template(base, page1, page2...etc)
+              add "TEMPLATE_DIR = os.path.join(BASE_DIR, 'template')" in the setting.py ## create the path
+              of template (BASE_DIR='C:\Users\'USER'\PycharmProjects\DjangoWeb') so TEMPLATE_DIR='C:\Users
+              \'USER'\PycharmProjects\DjangoWeb\template'  if you create the name of directory is tmp the 
+              code must be "TEMPLATE_DIR = os.path.join(BASE_DIR, 'tmp')"
+              
+       step.2 add the adress to django
+              add TEMPLATE_DIR, to 'DIRS': [], which in setting.py\TEMPLATE
+              
+       step.3 connect your views with html
+              type in views
+              def homepage_view (request):
+                     return render(request, 'base.html')
+       step.4 connect your views with urls
+              type in urls
+              from my_app import views
+              urlpatterns = [
+                  path('admin/', admin.site.urls),
+                  path('', views.homepage_view, name='home'),       ##add this one
+              ]
               
