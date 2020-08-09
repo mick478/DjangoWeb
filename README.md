@@ -73,6 +73,6 @@ FIRST VIEW IN DJANGO
               from my_app import views
               urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('', views.homepage_view, name='home'),       ##add this one
+                  path('', views.homepage_view, name='home'),       ##add this one  **name is for calling in html EX:action="{% url 'home' %}"
               ]
               
