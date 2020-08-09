@@ -34,6 +34,10 @@ BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
               git commit -m "first commit"                                   ##commit
               git remote add origin "https://github.com/mick478/test.git"    ##connect respostory address
               git push -u origin master                                      ##update project
+              
+              git pull                                                       ##when erro for push try pull then push again
+                                                                             sometimes the datas donnot match eachother 
+              
 ADD APP IN THE PROJECT
 
        step.1 open the IED whatever you wnat and open project
