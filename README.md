@@ -1,27 +1,4 @@
 "# DjangoWeb" 
-
-Django----src                      
-              --setting
-              --urls                    
-              --wsgi
-        --app                      
-              --migrations
-              --admin
-              --apps
-              --models
-              --views
-        --template
-              --html
-        --static
-              --css
-              --img
-
-1.BUILD DJANGO PROJECT
-2.ADD APP IN PROJECT
-3.ADD TEMPLATE IN PROJECT
-4.ADD STATIC IN PROJECT
-
-
 BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
 
        step.1 github add new repository
@@ -32,7 +9,7 @@ BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
               cd "project file"
               python -m venv "project name"
 
-       step.3 start venv&install djangDJo
+       step.3 start venv&install django
 
               dos:
               "project name"\script\activate.bat
@@ -75,50 +52,52 @@ ADD APP IN THE PROJECT
               find the INSTALLED_APPS in setting.py and add your name of app
 
 FIRST VIEW IN DJANGO
+       
+       Basic  if create templates below app skip this parts.
+              step.1 create Template ## for frontend
 
-       step.1 create Template ## for frontend
-              
-              add new directory below src
-              add new HTML file in template(base, page1, page2...etc)
-              add "TEMPLATE_DIR = os.path.join(BASE_DIR, 'template')" in the setting.py ## create the path
-              of template (BASE_DIR='C:\Users\'USER'\PycharmProjects\DjangoWeb') so TEMPLATE_DIR='C:\Users
-              \'USER'\PycharmProjects\DjangoWeb\template'  if you create the name of directory is tmp the 
-              code must be "TEMPLATE_DIR = os.path.join(BASE_DIR, 'tmp')"
-              
-       step.2 add the adress to django
-              add TEMPLATE_DIR, to 'DIRS': [], which in setting.py\TEMPLATE
-              
-       step.3 connect your views with html
-              type in views
-              def homepage_view (request):
-                     return render(request, 'base.html')
-       step.4 connect your views with urls
-              type in urls
-              from my_app import views
-              urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('', views.homepage_view, name='home'),       ##add this one  **name is for calling in html EX:action="{% url 'home' %}"
-              ]
-     
-CONNECT CSS AND IMG TO HTML
-       
+                     add new directory below src
+                     add new HTML file in template(base, page1, page2...etc)
+                     add "TEMPLATE_DIR = os.path.join(BASE_DIR, 'template')" in the setting.py ## create the path
+                     of template (BASE_DIR='C:\Users\'USER'\PycharmProjects\DjangoWeb') so TEMPLATE_DIR='C:\Users
+                     \'USER'\PycharmProjects\DjangoWeb\template'  if you create the name of directory is tmp the 
+                     code must be "TEMPLATE_DIR = os.path.join(BASE_DIR, 'tmp')"
+
+              step.2 add the adress to django
+                     add TEMPLATE_DIR, to 'DIRS': [], which in setting.py\TEMPLATE
+       A.
+              step.1 connect your views with html
+                     type in views
+                     def homepage_view (request):
+                            return render(request, 'base.html')
+              step.2 connect your views with urls
+                     type in urls
+                     from my_app import views
+                     urlpatterns = [
+                         path('admin/', admin.site.urls),
+                         path('', views.homepage_view, name='home'),       ##add this one  **name is for calling in html EX:action="{% url 'home' %}"
+                     ]
+       B.
+              step.1 create Template ## for frontend       
+                     add new directory below src
+                     add new HTML file in template(base, page1, page2...etc)
+                     add new python files below app. name "urls"              
+              step.2 connect urls between app and src
+                     type in urls of app(copy from urls of src)
+                     from django.urls path
+                     from . import views                        ##add this to connect all files in list
+
+                     urlpatterns = [
+                         #path('admin/', admin.site.urls),
+                     ]
                      
-       step.1 create directory of static
-              add directory below project named"static"
-              add directory below static named"css" and "img"
-              also you could create static below app                   ##when you do this way then your can type <img src="/static/img/view.jpg"> in your html to show the pic
-                                                                       ##or add {% load static %} top of html and type  <img src="{% static 'img/view.jpg'%}"> 
-              then you should creat the static-root below project      
-              
-              type in setting
-              STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static') ##announce the address of static-root
-              run "python manage.py collectstatic" it will collect all static in to static-root
-              
-       
-       step.2 connect to html
-              type in setting
-              STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) ##announce the address of static  if have other static in app prefer change the name common_static
-              then connect your css
-              <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-              <img src="/static/img/view.jpg">
-            
+                     type in urls of srcs
+                     from django.urls import path , include    ##add include
+                     urlpatterns = [
+                         path('admin/', admin.site.urls),
+                         path('user/', include('user.urls'))   ##connect urls from app"named user"
+                     ]
+              step.3 connect your views with html
+                     type in views
+                     def homepage_view (request):
+                            return render(request, 'base.html')
