@@ -1,4 +1,27 @@
 "# DjangoWeb" 
+
+Django----src                      
+              --setting
+              --urls                    
+              --wsgi
+        --app                      
+              --migrations
+              --admin
+              --apps
+              --models
+              --views
+        --template
+              --html
+        --static
+              --css
+              --img
+
+1.BUILD DJANGO PROJECT
+2.ADD APP IN PROJECT
+3.ADD TEMPLATE IN PROJECT
+4.ADD STATIC IN PROJECT
+
+
 BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
 
        step.1 github add new repository
@@ -9,7 +32,7 @@ BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
               cd "project file"
               python -m venv "project name"
 
-       step.3 start venv&install django
+       step.3 start venv&install djangDJo
 
               dos:
               "project name"\script\activate.bat
@@ -76,4 +99,26 @@ FIRST VIEW IN DJANGO
                   path('admin/', admin.site.urls),
                   path('', views.homepage_view, name='home'),       ##add this one  **name is for calling in html EX:action="{% url 'home' %}"
               ]
+     
+CONNECT CSS AND IMG TO HTML
+       
+                     
+       step.1 create directory of static
+              add directory below project named"static"
+              add directory below static named"css" and "img"
+              also you could create static below app                   ##when you do this way then your can type <img src="/static/img/view.jpg"> in your html to show the pic
+                                                                       ##or add {% load static %} top of html and type  <img src="{% static 'img/view.jpg'%}"> 
+              then you should creat the static-root below project      
               
+              type in setting
+              STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static') ##announce the address of static-root
+              run "python manage.py collectstatic" it will collect all static in to static-root
+              
+       
+       step.2 connect to html
+              type in setting
+              STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) ##announce the address of static  if have other static in app prefer change the name common_static
+              then connect your css
+              <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+              <img src="/static/img/view.jpg">
+            
