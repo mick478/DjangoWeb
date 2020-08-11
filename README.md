@@ -1,4 +1,12 @@
 "# DjangoWeb" 
+
+SUMMARY
+
+       1.create project
+       2.create app
+       3.create html and connect to app
+       4.create css and img then connect to app
+
 BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
 
        step.1 github add new repository
