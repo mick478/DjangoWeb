@@ -101,3 +101,25 @@ FIRST VIEW IN DJANGO
                      type in views
                      def homepage_view (request):
                             return render(request, 'base.html')
+
+CONNECT HTML WITH CSS AND IMG
+       
+       step.1 
+              create diretory below project "static"
+              create diretort "css" and "img" below static
+              type STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) in setting
+              then the html will connect by
+              <% load static %>
+              <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+              <img src="{% static 'img/test.jpg'%}">
+              update css must "python manage.py collectstatic"
+                            
+       other 
+              also can create diretory below app then don't need to setting django will search byself
+              when you have different apps then you need collect all static by share to each other app
+              setting.py  STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
+              "python manage.py collectstatic" will collect all 
+       
+
+              
+              
