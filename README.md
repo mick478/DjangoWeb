@@ -41,7 +41,9 @@ BUILDING THE DJANGO PROJECT ##you could skip the step 1 and 5
               git add "file name"                                            ##include the files
               git commit -m "first commit"                                   ##commit
               git remote add origin "https://github.com/mick478/test.git"    ##connect respostory address
+              git remote rm origin                                           ##clean
               git push -u origin master                                      ##update project
+              
               
               git pull origin master --allow-unrelated-histories             ##if you created the README.md when you added the repository
               git pull                                                       ##when erro for push try pull then push again
